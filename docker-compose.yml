@@ -1,0 +1,25 @@
+version: '3'
+services:
+  nginx:
+    image: nginx
+    ports:
+     - "8080:80"
+    volumes:
+     - ./nginx.conf:/etc/nginx/nginx.conf
+    links:
+    - application-api
+    - application-ui
+  application-ui:
+    image: node:7-alpine
+    volumes: 
+     - ./${APP}-ui:/app
+    command: npm start
+    expose:
+     - "3000"
+  application-api:
+    image: node:7-alpine
+    volumes:
+     - ./${APP}-api:/app
+    command: npm start
+    expose: 
+     - "3000"
