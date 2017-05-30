@@ -1,7 +1,6 @@
 FROM node:7-alpine
 
-RUN npm install -g nodemon
-
+RUN npm install -g nodemon sequelize-cli
 VOLUME /app
 WORKDIR /app
 
