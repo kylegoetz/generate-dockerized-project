@@ -1,7 +1,7 @@
 FROM node:7-alpine
 
 WORKDIR /app
-RUN npm install -g sequelize-cli mysql nodemon && \
+RUN npm install -g mysql nodemon && \
 	npm cache clean
 
 EXPOSE 3000
