@@ -10,6 +10,7 @@ VOLUME /app
 RUN npm install -g express-generator && \
 	express express-api && \
 	cd express-api && \
-	npm install
+	npm install && \
+	npm cache clean
 
 CMD cp -r /tmp/express-api /app 
