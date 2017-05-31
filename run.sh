@@ -23,8 +23,7 @@ docker run -d \
 	-v `pwd`/express-api:/app \
 	--name application-api \
 	--link application-db \
-	kylegoetz/development \
-	nodemon ./bin/www
+	kylegoetz/development
 docker run -d \
 	--expose 3000 \
 	-w /app \
