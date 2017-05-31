@@ -10,7 +10,14 @@ VOLUME /app
 RUN npm install -g express-generator && \
 	express express-api && \
 	cd express-api && \
-	npm install && \
-	npm cache clean
+	npm install mysql sequelize --save && \
+	npm install --save-dev sequelize-cli && \
+	./node_modules/.bin/sequelize init && \
+	npm cache clean && \
+	rm -rf ./node_modules
 
-CMD cp -r /tmp/express-api /app 
+ADD ./sequelize.conf /tmp/express-api/config/config.json
+
+CMD cp -r /tmp/express-api /app && \
+	cd /app/express-api && \
+	npm install
