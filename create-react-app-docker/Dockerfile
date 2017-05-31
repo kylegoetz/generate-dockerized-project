@@ -12,4 +12,6 @@ VOLUME /app
 RUN create-react-app react-ui
 
 # Move code to host machine (assumes -v `pwd`:/app included in docker run cmd)
-CMD cp -r react-ui /app
+CMD cp -r react-ui /app && \
+	cd /app && \
+	npm install
